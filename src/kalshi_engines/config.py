@@ -1,7 +1,11 @@
-from pathlib import Path
+"""Runtime configuration and logging setup."""
+import logging
 
-BASE_DIR = Path(__file__).parent.parent.parent
-MODELS_DIR = BASE_DIR / "models"
-DATA_SAMPLES_DIR = BASE_DIR / "data_samples"
-PLOTS_DIR = BASE_DIR / "plots"
-PLOTS_DIR.mkdir(exist_ok=True)
+# Set up clean logging for both local dev and Docker
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+
+log = logging.getLogger(__name__)
