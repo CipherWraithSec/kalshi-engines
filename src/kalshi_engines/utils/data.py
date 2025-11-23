@@ -4,6 +4,8 @@ import logging
 
 log = logging.getLogger(__name__)
 
+# Utility function to fetch data with retries
+
 
 def fetch_with_retry(url: str, retries: int = 3, backoff: int = 2):
     for i in range(retries):
